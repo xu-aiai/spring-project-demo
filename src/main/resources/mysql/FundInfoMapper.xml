@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dao.FundInfoMapper">
+
+    <select id="listFundInfo" resultType="com.example.entity.FundInfoDO">
+        select fund_id, fund_name from jc_tfundinfo
+        <where>
+            <if test="fundId != null">
+                fund_id = #{fundId}
+            </if>
+        </where>
+    </select>
+
+</mapper>

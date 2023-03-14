@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dao.StockInfoMapper">
+
+    <select id="listStockInfo" resultType="com.example.entity.StockInfoDO">
+        select inter_code, stock_name from jw_tstockinfo
+        <where>
+            <if test="interCode != null">
+                fund_id = #{interCode}
+            </if>
+        </where>
+    </select>
+
+</mapper>
