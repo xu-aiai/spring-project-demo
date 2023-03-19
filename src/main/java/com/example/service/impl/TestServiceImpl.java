@@ -1,6 +1,6 @@
 package com.example.service.impl;
 
-import com.example.threadpool.CustomMultiThreadingService;
+import com.example.infrastructure.threadpool.CustomMultiThreadingService;
 import com.example.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

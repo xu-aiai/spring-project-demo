@@ -2,13 +2,28 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.dao.FundInfoMapper">
+<mapper namespace="com.example.infrastructure.repository.dao.FundInfoMapper">
 
-    <select id="listFundInfo" resultType="com.example.entity.FundInfoDO">
+    <select id="listFundInfo" resultType="com.example.infrastructure.repository.po.FundInfoDO">
         select fund_id, fund_name from jc_tfundinfo
         <where>
             <if test="fundId != null">
                 fund_id = #{fundId}
+            </if>
+        </where>
+    </select>
+
+    <select id="listFundInfo2" resultType="com.example.domain.fund.FundInfoQueryResponse">
+        select fund_id, fund_name, fund_cust_id from gams_tfundinfo
+        <where>
+            <if test="fundId != null">
+                and fund_id = #{fundId,jdbcType=INTEGER}
+            </if>
+            <if test="fundCustId != null">
+                and fund_cust_id = #{fundCustId,jdbcType=INTEGER}
+            </if>
+            <if test="fundName != null and fundName != ''">
+                and fund_name = #{fundName,jdbcType=VARCHAR}
             </if>
         </where>
     </select>

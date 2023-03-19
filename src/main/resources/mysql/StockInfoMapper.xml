@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.dao.StockInfoMapper">
+<mapper namespace="com.example.infrastructure.repository.dao.StockInfoMapper">
 
-    <select id="listStockInfo" resultType="com.example.entity.StockInfoDO">
+    <select id="listStockInfo" resultType="com.example.infrastructure.repository.po.StockInfoDO">
         select inter_code, stock_name from jw_tstockinfo
         <where>
             <if test="interCode != null">
